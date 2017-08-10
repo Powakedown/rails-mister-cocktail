@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="content">
+  <h1>Ajouter une nouvelle dose aux ingrédients</h1>
+  <hr>
+  <%= simple_form_for [@cocktail, @dose] do |f| %>
+    <%= f.input :description, label: 'Decription', error: 'Le nom est obligatoire, please specify one' %>
+    <%= f.input :ingredient_id, label: 'Ingrédient de la dose' %>
+    <div class="text-center">
+      <%= f.button :submit, class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+  </div>
+</div>
