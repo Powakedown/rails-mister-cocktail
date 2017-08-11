@@ -1,24 +1,42 @@
-<div class="container">
-  <h1><%= @cocktail.name %></h1>
-  <hr>
+<div class="content" style="background-image: url('<%= cl_image_path @cocktail.photo_url %>'); background-size:cover;">
+  <div class="container">
+    <h1><%= @cocktail.name %></h1>
+    <hr>
 
-  <h5>Ingrédients:</h5>
+    <div class="row">
+      <div class="col-xs-12 col-md-6" >
+      </div>
+      <div class="col-xs-12 col-md-6">
 
-  <div class="buttons">
-    <%= link_to new_cocktail_dose_path(@cocktail) do %>
-      <i class="fa fa-plus"></i>
-      <span>Ajouter une dose</span>
-    <% end %>
+        <div class="ingredient">
+
+          <h5>Ingrédients:</h5>
+          <div class="buttons">
+            <%= link_to new_cocktail_dose_path(@cocktail) do %>
+              <i class="fa fa-plus"></i>
+              <span>Ajouter une dose</span>
+            <% end %>
+          </div>
+
+          <ul class="list-group">
+            <% @cocktail.doses.each do |dose| %>
+              <% if dose.persisted? %>
+                <li class="list-group-item">
+                  <span class="list-label"> <%= dose.description %></span>
+                  <span> <%= dose.ingredient.name %></span>
+                  <!-- cocktail_dose   DELETE  /cocktails/:cocktail_id/doses/:id(.:format) doses#destroy -->
+                  <%= link_to dose_path(dose), method: :delete do %>
+                    <i class="fa fa-trash align-right"></i>
+                  <% end %>
+                </li>
+              <% end %>
+            <% end %>
+          </ul>
+
+        </div>
+
+      </div>
+    </div>
   </div>
-
-  <ul class="list-group">
-    <% @cocktail.doses.each do |dose| %>
-      <li class="list-group-item">
-        <span class="list-label"> <%= dose.description %></span>
-        <span> <%= dose.ingredient.name %></span>
-      </li>
-  <% end %>
-  </ul>
-
 </div>
 

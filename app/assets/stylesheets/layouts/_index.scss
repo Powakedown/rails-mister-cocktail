@@ -3,3 +3,18 @@
 // @import "dashboard";
 // @import "profile";
 // @import "map";
+
+body {
+  background-color: #16002E;
+}
+h1,label {
+  color: white;
+}
+label {
+  font-weight: 400 !important;
+}
+.content-medium {
+  width: 500px;
+  margin: auto;
+  padding-top: 30px;
+}

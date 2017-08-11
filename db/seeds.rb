@@ -13,7 +13,7 @@ Ingredient.create(name: "mint leaves")
   quantity = "#{rand(2..30)}" + "cl"
   Ingredient.create(name: Faker::Food.ingredient)
   Cocktail.create(name: Faker::Beer.name)
-  # Dose.create(description:quantity, ingredient_id:rand(1..10), cocktail_id:1)
+  Dose.create(description:quantity, ingredient_id:rand(1..10), cocktail_id:1)
 end
 
 
