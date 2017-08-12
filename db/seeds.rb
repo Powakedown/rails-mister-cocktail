@@ -15,10 +15,10 @@ cocktails = ["Sex on the Beach", "Jeudi Noir", "Wagon fumant", "Mother Swag", "P
 #  puts "Création du cocktail #{item}"
 # end
 
-10.times do
-  quantity = "#{rand(2..30)}" + "cl"
-  Dose.create(description:quantity, ingredient_id:rand(1..Ingredient.count), cocktail_id:1)
-  puts "Création d'un dose pour le cocktail 1"
-end
+# 10.times do
+#   quantity = "#{rand(2..30)}" + "cl"
+#   Dose.create(description:quantity, ingredient_id:rand(1..Ingredient.count), cocktail_id:1)
+#   puts "Création d'un dose pour le cocktail 1"
+# end
 
 
