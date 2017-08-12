@@ -42,6 +42,7 @@ gem 'faker'
 gem 'figaro'
 gem 'carrierwave', '~> 0.11.2'
 gem 'cloudinary', '1.1.7'
+gem 'rest-client'
 
 
 group :development, :test do

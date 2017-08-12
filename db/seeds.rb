@@ -1,28 +1,24 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-Ingredient.create(name: "lemon")
-Ingredient.create(name: "ice")
-Ingredient.create(name: "mint leaves")
+require 'json'
+
+filepath = 'http://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
+serialized_ingredients = RestClient.get(filepath)
+ingredients = JSON.parse(serialized_ingredients)
+ingredients['drinks'].each do |ingredient|
+  Ingredient.create(name: ingredient['strIngredient1'])
+  puts "Création de l'ingrédient '#{ingredient['strIngredient1']}'"
+end
+
+cocktails = ["Sex on the Beach", "Jeudi Noir", "Wagon fumant", "Mother Swag", "Prude octobre", "Cruelle vengeance", "Peur de l'abîme", "Course à la mort", "Risque d'amour"]
+
+# cocktails.each_with_index do |item, index|
+#  Cocktail.create(name: item)
+#  puts "Création du cocktail #{item}"
+# end
 
 10.times do
   quantity = "#{rand(2..30)}" + "cl"
-  Ingredient.create(name: Faker::Food.ingredient)
-  Cocktail.create(name: Faker::Beer.name)
-  Dose.create(description:quantity, ingredient_id:rand(1..10), cocktail_id:1)
+  Dose.create(description:quantity, ingredient_id:rand(1..Ingredient.count), cocktail_id:1)
+  puts "Création d'un dose pour le cocktail 1"
 end
 
 
-# filepath = 'http://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
-
-# serialized_ingredients = File.read(filepath)
-
-# ingredients = JSON.parse(serialized_ingredients)
-
-# ingredients.each do |ingredient|
-#   Ingredient.create(name: ingredient[:strIngredient1])
-# end

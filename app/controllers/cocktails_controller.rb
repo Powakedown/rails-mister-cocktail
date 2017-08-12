@@ -1,6 +1,13 @@
 class CocktailsController < ApplicationController
   def index
     @cocktails = Cocktail.all
+    @cocktails.each do |cocktail|
+      if cocktail.photo_url
+        @photo = cocktail.photo_url
+      else
+        @photo = 'photo.png'
+      end
+    end
   end
 
   def show
