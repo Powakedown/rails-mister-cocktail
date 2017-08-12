@@ -8,8 +8,9 @@
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
     <!-- Links -->
+    <%=  %>
     <%= link_to "All the cocktails", cocktails_path, class: "navbar-wagon-item navbar-wagon-link" %>
-    <%= link_to "Random cocktail", cocktail_path(rand(1..Cocktail.count)), class: "navbar-wagon-item navbar-wagon-link" %>
+    <%= link_to "Random cocktail", cocktail_path(rand(12..19)), class: "navbar-wagon-item navbar-wagon-link" %>
     <%= link_to "Create a cocktail", new_cocktail_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
   </div>

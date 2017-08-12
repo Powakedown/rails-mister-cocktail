@@ -10,3 +10,17 @@ input>label{
 .labels{
   margin-right: 15px;
 }
+
+#cocktail_photo {
+  background-color: white;
+  width: 100%;
+  height: 200px;
+  border-radius: 30px;
+  color: transparent;
+  background-image: url('photo.png');
+  background-position: center;
+  background-size: 100px;
+  background-repeat: no-repeat;
+}
+
+
